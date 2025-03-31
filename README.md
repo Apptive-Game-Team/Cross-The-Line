@@ -15,4 +15,24 @@
 ```
 ex) feat($issue_num): title
     content
+
+feat($777): 이거이거 고침
+    세부적으로 이거 고침
+    세부적으로 저거 고침
 ```
+
+## pull request convention
+
+|태그|설명|
+|---|---|
+|Feature|새로운 코드 추가|
+|Fix|문제점 수정|
+|Refact|코드 리팩토링|
+|Merge|merge|
+
+
+```
+ex) FEAT/ISSUE_NUM
+    FEAT/777
+
+``` 
