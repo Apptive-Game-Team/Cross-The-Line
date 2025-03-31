@@ -12,6 +12,7 @@
 |docs|README와 같은 문서 수정|
 |merge|merge|
 |rename|파일, 폴더명 수정 혹은 이동|
+|chore|패키지 추가 등 잡다한 작업들|
 ```
 ex) feat($issue_num): title
     content
