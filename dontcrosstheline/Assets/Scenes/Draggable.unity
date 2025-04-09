@@ -551,10 +551,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1544436079}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1544436086}
+        m_TargetAssemblyTypeName: DCR.Ui.UIActiveController, Assembly-CSharp
+        m_MethodName: Toggle
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -987,10 +987,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1544436079}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1544436086}
+        m_TargetAssemblyTypeName: DCR.Ui.UIActiveController, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1239,10 +1239,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1388583821}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1388583828}
+        m_TargetAssemblyTypeName: DCR.Ui.UIActiveController, Assembly-CSharp
+        m_MethodName: Toggle
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1371,10 +1371,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1842403646}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1842403654}
+        m_TargetAssemblyTypeName: DCR.Ui.UIActiveController, Assembly-CSharp
+        m_MethodName: Toggle
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1503,10 +1503,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1842403646}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1842403654}
+        m_TargetAssemblyTypeName: DCR.Ui.UIActiveController, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1773,6 +1773,7 @@ GameObject:
   - component: {fileID: 1388583823}
   - component: {fileID: 1388583825}
   - component: {fileID: 1388583824}
+  - component: {fileID: 1388583828}
   m_Layer: 5
   m_Name: Window Panel (1)
   m_TagString: Untagged
@@ -1904,6 +1905,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388583821}
   m_CullTransparentMesh: 1
+--- !u!114 &1388583828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388583821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11256db35e5bf9843a832cd1f019a10f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeOrigin: {fileID: 1038658923}
+  duration: 0.25
+  ease: 6
+  root: {fileID: 0}
 --- !u!1 &1505854900
 GameObject:
   m_ObjectHideFlags: 0
@@ -2004,6 +2021,7 @@ GameObject:
   - component: {fileID: 1544436081}
   - component: {fileID: 1544436083}
   - component: {fileID: 1544436082}
+  - component: {fileID: 1544436086}
   m_Layer: 5
   m_Name: Window Panel (2)
   m_TagString: Untagged
@@ -2135,6 +2153,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544436079}
   m_CullTransparentMesh: 1
+--- !u!114 &1544436086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544436079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11256db35e5bf9843a832cd1f019a10f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeOrigin: {fileID: 338236525}
+  duration: 0.25
+  ease: 6
+  root: {fileID: 0}
 --- !u!1 &1607199178
 GameObject:
   m_ObjectHideFlags: 0
@@ -2606,10 +2640,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1388583821}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1388583828}
+        m_TargetAssemblyTypeName: DCR.Ui.UIActiveController, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2670,6 +2704,7 @@ GameObject:
   - component: {fileID: 1842403648}
   - component: {fileID: 1842403652}
   - component: {fileID: 1842403653}
+  - component: {fileID: 1842403654}
   m_Layer: 5
   m_Name: Window Panel
   m_TagString: Untagged
@@ -2801,6 +2836,22 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   clickRectTransform: {fileID: 0}
+--- !u!114 &1842403654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842403646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11256db35e5bf9843a832cd1f019a10f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeOrigin: {fileID: 1157889209}
+  duration: 0.25
+  ease: 6
+  root: {fileID: 0}
 --- !u!1 &1861107462
 GameObject:
   m_ObjectHideFlags: 0
