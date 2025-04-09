@@ -8,6 +8,7 @@ namespace DCR.Ui
         public DragEvent onBeginDrag = new DragEvent();
         public DragEvent onDrag = new DragEvent();
         public DragEvent onEndDrag = new DragEvent();
+        
 
         public void OnBeginDrag(PointerEventData eventData)
         {
@@ -23,6 +24,8 @@ namespace DCR.Ui
         {
             onEndDrag.Invoke(eventData);
         }
+
+        
     }
 
     [System.Serializable]

@@ -2,7 +2,7 @@ namespace DCR.Ui
 {
     using UnityEngine;
 
-    public class DragSort : MonoBehaviour
+    public class UISort : MonoBehaviour
     {
         public void SortChange()
         {
