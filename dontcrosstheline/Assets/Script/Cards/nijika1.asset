@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c1bc2ead2e190a47b29f66ac8100036, type: 3}
+  m_Name: nijika1
+  m_EditorClassIdentifier: 
+  cardID: 0
+  cardName: Generic nijika action
+  cardSprite: 1
+  leftQuote: nijika left
+  rightQuote: nijika right
