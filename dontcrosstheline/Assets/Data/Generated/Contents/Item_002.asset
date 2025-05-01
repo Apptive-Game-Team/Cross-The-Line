@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   message: world
-  w: 2
-  minStage: 10
+  w: 5
+  minStage: 6
   minStatus:
-    Bad: 300
-    Secret: 400
+    Bad: 7
+    Secret: 8
+  image: {fileID: 21300000, guid: f5234e3393e4c1b428cb59a85cb6e951, type: 3}

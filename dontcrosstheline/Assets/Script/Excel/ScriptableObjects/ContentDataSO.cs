@@ -10,14 +10,16 @@ public class ContentDataSO : ScriptableObject
     public int w;
     public int minStage;
     public Status minStatus;
+    public Sprite image;
     
-    public void Init(int _id, string _message, int _w, int _minStage, int _bad, int _secret)
+    public void Init(int _id, string _message, int _w, int _minStage, int _bad, int _secret, Sprite _image)
     {
         id = _id;
         message = _message;
         w = _w;
         minStage = _minStage;
         minStatus = new Status(_bad, _secret);
+        image = _image;
     }
     
     [Serializable]
