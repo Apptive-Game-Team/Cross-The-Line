@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
@@ -10,18 +9,18 @@ public class ExcelImporter : MonoBehaviour
     private const string contentOutDir = "Assets/Data/Generated/Contents";
     private const string dbAssetPath = "Assets/Data/Generated/ContentDB.asset";
 
-    [MenuItem("Tools/CSV ¡æ ScriptableObjects + Database")]
+    [MenuItem("Tools/CSV â†’ ScriptableObjects + Database")]
     public static void ConvertCsvAndGenerateDatabase()
     {
-        // 1. CSV ÀĞ±â
+        // 1. CSV ì½ê¸°
         TextAsset csvFile = Resources.Load<TextAsset>(csvPath);
         if (csvFile == null)
         {
-            Debug.LogError($"CSV ÆÄÀÏÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù: Resources/{csvPath}.csv");
+            Debug.LogError($"CSV íŒŒì¼ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤: Resources/{csvPath}.csv");
             return;
         }
 
-        // 2. Ãâ·Â Æú´õ ÁØºñ
+        // 2. ì¶œë ¥ í´ë” ì¤€ë¹„
         if (!AssetDatabase.IsValidFolder(contentOutDir))
         {
             Directory.CreateDirectory(contentOutDir);
@@ -38,7 +37,7 @@ public class ExcelImporter : MonoBehaviour
 
             if (cols.Length < 4)
             {
-                Debug.LogWarning($"Àß¸øµÈ ¶óÀÎ: {line}");
+                Debug.LogWarning($"ì˜ëª»ëœ ë¼ì¸: {line}");
                 continue;
             }
 
@@ -50,24 +49,22 @@ public class ExcelImporter : MonoBehaviour
             int secret = int.Parse(cols[5]);
 
             string assetPath = $"{contentOutDir}/Item_{id:D3}.asset";
-            ContentDataSO item = AssetDatabase.LoadAssetAtPath<ContentDataSO>(assetPath);
-            if (item == null)
+            ContentDataSO data = AssetDatabase.LoadAssetAtPath<ContentDataSO>(assetPath);
+            if (data == null)
             {
-                item = ScriptableObject.CreateInstance<ContentDataSO>();
-                AssetDatabase.CreateAsset(item, assetPath);
+                data = ScriptableObject.CreateInstance<ContentDataSO>();
+                AssetDatabase.CreateAsset(data, assetPath);
             }
 
-            item.id = id;
-            item.message = message;
-            item.w = w;
-            item.minStage = minStage;
-            item.minStatus = new Status(bad, secret);
+            data.Init(id, message, w, minStage, bad, secret);
+            
+            Debug.Log($"{data.message}");
 
-            EditorUtility.SetDirty(item);
-            allItems.Add(item);
+            EditorUtility.SetDirty(data);
+            allItems.Add(data);
         }
 
-        // 3. Content Database »ı¼º or °»½Å
+        // 3. Content Database ìƒì„± or ê°±ì‹ 
         ContentDBSO db = AssetDatabase.LoadAssetAtPath<ContentDBSO>(dbAssetPath);
         if (db == null)
         {
@@ -80,6 +77,6 @@ public class ExcelImporter : MonoBehaviour
 
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
-        Debug.Log("CSV ¡æ ItemData + ItemDatabase »ı¼º ¿Ï·á!");
+        Debug.Log("CSV â†’ Content Datas + Content Database ìƒì„± ì™„ë£Œ!");
     }
 }
