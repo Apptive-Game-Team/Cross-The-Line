@@ -1,0 +1,97 @@
+# ────────────────────────────────────────────
+# EditorConfig for C# (PascalCase 네이밍 + Brace 스타일 등)
+# ────────────────────────────────────────────
+root = true
+
+# 1. 모든 파일 공통: 스페이스 4칸 들여쓰기
+[*]
+indent_style = space
+indent_size  = 4
+
+# 2. C# 파일 설정
+[*.cs]
+
+# 2.1 Brace style: 모든 중괄호 전에 줄 바꿈
+csharp_new_line_before_open_brace = all
+
+# 2.2 항상 접근 제한자 지정
+csharp_style_require_accessibility_modifiers = always:warning
+
+# ────────────────────────────────────────────
+# 3. 네이밍 스타일 정의
+# ────────────────────────────────────────────
+
+# PascalCase 스타일 정의
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+
+# camelCase 스타일 정의
+dotnet_naming_style.camel_case.capitalization  = camel_case
+
+# Interface 접두사(I) + PascalCase
+dotnet_naming_style.interface_prefix.capitalization  = pascal_case
+dotnet_naming_style.interface_prefix.required_prefix = I
+
+# ────────────────────────────────────────────
+# 4. 심볼 그룹 정의
+# ────────────────────────────────────────────
+
+dotnet_naming_symbols.namespace_symbols.applicable_kinds         = namespace
+dotnet_naming_symbols.namespace_symbols.applicable_accessibilities = *
+
+dotnet_naming_symbols.type_symbols.applicable_kinds              = class, struct, enum, delegate
+dotnet_naming_symbols.type_symbols.applicable_accessibilities     = *
+
+dotnet_naming_symbols.method_symbols.applicable_kinds            = method
+dotnet_naming_symbols.method_symbols.applicable_accessibilities   = *
+
+dotnet_naming_symbols.property_symbols.applicable_kinds          = property
+dotnet_naming_symbols.property_symbols.applicable_accessibilities = *
+
+dotnet_naming_symbols.field_instance.applicable_kinds            = field
+dotnet_naming_symbols.field_instance.applicable_accessibilities   = *
+
+dotnet_naming_symbols.field_static.applicable_kinds              = field
+dotnet_naming_symbols.field_static.applicable_accessibilities     = *
+dotnet_naming_symbols.field_static.required_modifiers             = static
+
+dotnet_naming_symbols.parameter_symbols.applicable_kinds         = parameter
+dotnet_naming_symbols.parameter_symbols.applicable_accessibilities = *
+
+dotnet_naming_symbols.interface_symbols.applicable_kinds         = interface
+dotnet_naming_symbols.interface_symbols.applicable_accessibilities = *
+
+# ────────────────────────────────────────────
+# 5. 네이밍 룰 적용
+# ────────────────────────────────────────────
+
+dotnet_naming_rule.namespace_pascal.symbols  = namespace_symbols
+dotnet_naming_rule.namespace_pascal.style    = pascal_case
+dotnet_naming_rule.namespace_pascal.severity      = error
+
+dotnet_naming_rule.types_pascal.symbols      = type_symbols
+dotnet_naming_rule.types_pascal.style        = pascal_case
+dotnet_naming_rule.types_pascal.severity          = error    
+
+dotnet_naming_rule.methods_pascal.symbols    = method_symbols
+dotnet_naming_rule.methods_pascal.style      = pascal_case
+dotnet_naming_rule.methods_pascal.severity        = error
+
+dotnet_naming_rule.properties_pascal.symbols = property_symbols
+dotnet_naming_rule.properties_pascal.style   = pascal_case
+dotnet_naming_rule.properties_pascal.severity     = error
+
+dotnet_naming_rule.fields_camel.symbols      = field_instance
+dotnet_naming_rule.fields_camel.style        = camel_case
+dotnet_naming_rule.fields_camel.severity          = error
+
+dotnet_naming_rule.fields_static_pascal.symbols = field_static
+dotnet_naming_rule.fields_static_pascal.style   = pascal_case
+dotnet_naming_rule.fields_static_pascal.severity     = error
+
+dotnet_naming_rule.parameters_camel.symbols   = parameter_symbols
+dotnet_naming_rule.parameters_camel.style     = camel_case
+dotnet_naming_rule.parameters_camel.severity       = error
+
+dotnet_naming_rule.interfaces_prefix.symbols = interface_symbols
+dotnet_naming_rule.interfaces_prefix.style   = interface_prefix
+dotnet_naming_rule.interfaces_prefix.severity     = error
