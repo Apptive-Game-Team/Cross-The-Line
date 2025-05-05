@@ -1,0 +1,23 @@
+# PR에 리뷰어 추가를 허용한다
+addReviewers: true
+
+# PR 담당자로 본인이 설정된다
+addAssignees: author
+
+# 자동 추가할 리뷰어(Github user name)
+reviewers: 
+  - Vackam
+
+# PR에 추가할 리뷰어 명수
+# 0명부터 모든 리뷰어까지 설정 (default: 0)
+numberOfReviewers: 1
+
+# PR에 추가할 담당자 명수
+# 0명부터 모든 담당자까지 설정
+# 설정 없을 시 numberOfReviewers로 설정
+numberOfAssignees: 1
+
+# 리뷰어 자동 매칭 Skip 키워드 설정
+# PR 타이틀이나 본문에 키워드 포함하면 리뷰어 자동 매칭 생략
+skipKeywords:
+  - wip
