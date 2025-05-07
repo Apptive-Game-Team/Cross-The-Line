@@ -41,7 +41,7 @@ public class ContentDataEditor : Editor
                 if (element.objectReferenceValue == null) return;
 
                 var content = (ContentDataSO)element.objectReferenceValue;
-                string titleRaw = $"{content.id}. {content.message}";
+                string titleRaw = $"{content.Id}. {content.Message}";
                 string title = titleRaw.Length > 40 ? titleRaw.Substring(0, 40) + "..." : titleRaw;
                 string foldoutKey = $"Content_{index}_{content.name}";
 
@@ -62,10 +62,10 @@ public class ContentDataEditor : Editor
 
                     EditorGUI.BeginDisabledGroup(true);
 
-                    if (content.image != null)
+                    if (content.Image != null)
                     {
                         Rect imageRect = new Rect(rect.x + padding, y, imageSize, imageSize);
-                        EditorGUI.DrawPreviewTexture(imageRect, content.image.texture);
+                        EditorGUI.DrawPreviewTexture(imageRect, content.Image.texture);
                     }
 
                     // 첫 번째 줄: W / MS
@@ -75,12 +75,12 @@ public class ContentDataEditor : Editor
                     Rect wLabel = new Rect(textBlockX, y, labelWidth, EditorGUIUtility.singleLineHeight);
                     Rect wField = new Rect(wLabel.xMax, y, fieldWidth, EditorGUIUtility.singleLineHeight);
                     EditorGUI.LabelField(wLabel, "W:");
-                    EditorGUI.TextField(wField, GUIContent.none, content.w.ToString());
+                    EditorGUI.TextField(wField, GUIContent.none, content.W.ToString());
 
                     Rect msLabel = new Rect(wField.xMax + spacing, y, labelWidth + 5f, EditorGUIUtility.singleLineHeight);
                     Rect msField = new Rect(msLabel.xMax, y, fieldWidth, EditorGUIUtility.singleLineHeight);
                     EditorGUI.LabelField(msLabel, "MS:");
-                    EditorGUI.TextField(msField, GUIContent.none, content.minStage.ToString());
+                    EditorGUI.TextField(msField, GUIContent.none, content.MinStage.ToString());
 
                     // 두 번째 줄: Status
                     y += EditorGUIUtility.singleLineHeight + 4f;
@@ -90,7 +90,7 @@ public class ContentDataEditor : Editor
                     Rect statusLabel = new Rect(textBlockX, y, statusLabelWidth, EditorGUIUtility.singleLineHeight);
                     Rect statusField = new Rect(statusLabel.xMax, y, statusFieldWidth, EditorGUIUtility.singleLineHeight);
                     EditorGUI.LabelField(statusLabel, "Status:");
-                    EditorGUI.TextField(statusField, GUIContent.none, $"(Bad:{content.minStatus.Bad}, Secret:{content.minStatus.Secret})");
+                    EditorGUI.TextField(statusField, GUIContent.none, $"(Bad:{content.MinStatus.Bad}, Secret:{content.MinStatus.Secret})");
 
                     EditorGUI.EndDisabledGroup();
                 }

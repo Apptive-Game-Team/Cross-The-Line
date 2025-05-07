@@ -73,7 +73,7 @@ public class ExcelImporter : MonoBehaviour
             AssetDatabase.CreateAsset(db, dbAssetPath);
         }
 
-        db.datas = allItems;
+        db.Datas = allItems;
         EditorUtility.SetDirty(db);
 
         AssetDatabase.SaveAssets();

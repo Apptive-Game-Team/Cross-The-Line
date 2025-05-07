@@ -4,5 +4,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ContentData", menuName = "Content Database", order = int.MaxValue)]
 public class ContentDatabaseSO : ScriptableObject
 {
-    public List<ContentDataSO> datas;
+    public List<ContentDataSO> Datas;
 }
