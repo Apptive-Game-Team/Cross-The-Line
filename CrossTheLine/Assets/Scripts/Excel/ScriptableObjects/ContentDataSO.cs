@@ -1,31 +1,51 @@
 using System;
 using UnityEngine;
 
-//[CreateAssetMenu(fileName="ContentData", menuName = "Content Data", order = int.MaxValue)]
 public class ContentDataSO : ScriptableObject
 {
-    // id | 텍스트 | 가중치 | 최소 등장 스테이지 | 최소 스테이터스
-    public int id;
-    public string message;
-    public int w;
-    public int minStage;
-    public Status minStatus;
-    public Sprite image;
-    
-    public void Init(int id, string message, int w, int minStage, int bad, int secret, Sprite image)
+    public int Id;
+    public int PreviousId;
+    public string Title;
+    public string Sender;
+    public string Content;
+    public Status MinStatus;      // 최소 요구 스테이터스
+    public Status RewardStatus;   // 수락시 보상 스테이터스
+    public string AcceptMessage;
+    public string RejectMessage;
+    public Sprite Image;
+
+    public void Init(int id, int previousId, string title, string sender, string content, 
+        int minJustice, int minGuilt, int minInfamy,
+        int rewardJustice, int rewardGuilt, int rewardInfamy,
+        string acceptMessage, string rejectMessage, Sprite image)
     {
-        this.id = id;
-        this.message = message;
-        this.w = w;
-        this.minStage = minStage;
-        this.minStatus = new Status(bad, secret);
-        this.image = image;
+        this.Id = id;
+        this.PreviousId = previousId;
+        this.Title = title;
+        this.Sender = sender;
+        this.Content = content;
+        this.MinStatus = new Status(minJustice, minGuilt, minInfamy);
+        this.RewardStatus = new Status(rewardJustice, rewardGuilt, rewardInfamy);
+        this.AcceptMessage = acceptMessage;
+        this.RejectMessage = rejectMessage;
+        this.Image = image;
     }
-    
+
     [Serializable]
     public struct Status
     {
-        public Status(int bad, int secret) { Bad = bad; Secret = secret; }
-        public int Bad, Secret;
+        public Status(int justice, int guilt, int infamy)
+        { 
+            Justice = justice;
+            Guilt = guilt;
+            Infamy = infamy;
+        }
+        
+        public int Justice, Guilt, Infamy;
+
+        public override string ToString()
+        {
+            return $"정의감:{Justice}, 죄책감:{Guilt}, 악명:{Infamy}";
+        }
     }
 }
