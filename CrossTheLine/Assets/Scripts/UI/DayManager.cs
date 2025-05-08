@@ -6,8 +6,9 @@ namespace CTR
     public class DayManager : MonoBehaviour
     {
         [Header("Broadcasting on")]
-        [SerializeField] private VoidEventChannelSO onDayChanged;
+        [SerializeField] private IntEventChannelSO onDayChanged;
 
+        public int CurrentDay { get; set; } = 0;
         public bool isChanged = false;
 
         private void Update()
@@ -21,7 +22,8 @@ namespace CTR
 
         public void GoNextDay()
         {
-            onDayChanged.OnEventRaised();
+            CurrentDay += 1;
+            onDayChanged.OnEventRaised(CurrentDay);
         }
     }
 }

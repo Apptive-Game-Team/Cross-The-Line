@@ -14,5 +14,3 @@ namespace CTR.UI.ScriptableObjects
         public int CurrentIndex;
     }
 }
-
-

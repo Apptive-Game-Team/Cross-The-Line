@@ -30,22 +30,4 @@ public class ContentDataSO : ScriptableObject
         this.RejectMessage = rejectMessage;
         this.Image = image;
     }
-
-    [Serializable]
-    public struct Status
-    {
-        public Status(int justice, int guilt, int infamy)
-        { 
-            Justice = justice;
-            Guilt = guilt;
-            Infamy = infamy;
-        }
-        
-        public int Justice, Guilt, Infamy;
-
-        public override string ToString()
-        {
-            return $"정의감:{Justice}, 죄책감:{Guilt}, 악명:{Infamy}";
-        }
-    }
 }
