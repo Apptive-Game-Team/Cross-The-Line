@@ -36,7 +36,7 @@ public class ExcelImporter : MonoBehaviour
             string line = lines[i];
             string[] cols = line.Split(',');
 
-            if (cols.Length < 4)
+            if (cols.Length < 13)
             {
                 Debug.LogWarning($"잘못된 라인: {line}");
                 continue;
@@ -44,12 +44,25 @@ public class ExcelImporter : MonoBehaviour
             
             // Data 다 읽은 경우 반복문 중단
             if (!int.TryParse(cols[0], out int id)) break;
-            string message = cols[1];
-            int w = int.Parse(cols[2]);
-            int minStage = int.Parse(cols[3]);
-            int bad = int.Parse(cols[4]);
-            int secret = int.Parse(cols[5]);
-            Sprite image = Resources.Load<Sprite>($"{imageDir}{cols[6]}");
+            
+            int previousId = int.Parse(cols[1]);
+            string title = cols[2];
+            string sender = cols[3];
+            string content = cols[4];
+            
+            // 최소 요구 스테이터스
+            int minJustice = int.Parse(cols[5]);
+            int minGuilt = int.Parse(cols[6]);
+            int minInfamy = int.Parse(cols[7]);
+            
+            // 수락시 보상 스테이터스
+            int rewardJustice = int.Parse(cols[8]);
+            int rewardGuilt = int.Parse(cols[9]);
+            int rewardInfamy = int.Parse(cols[10]);
+            
+            string acceptMessage = cols[11];
+            string rejectMessage = cols[12];
+            Sprite image = Resources.Load<Sprite>($"{imageDir}{cols[13]}");
 
             string assetPath = $"{contentOutDir}/Item_{id:D3}.asset";
             ContentDataSO data = AssetDatabase.LoadAssetAtPath<ContentDataSO>(assetPath);
@@ -59,7 +72,10 @@ public class ExcelImporter : MonoBehaviour
                 AssetDatabase.CreateAsset(data, assetPath);
             }
 
-            data.Init(id, message, w, minStage, bad, secret, image);
+            data.Init(id, previousId, title, sender, content, 
+                minJustice, minGuilt, minInfamy,
+                rewardJustice, rewardGuilt, rewardInfamy,
+                acceptMessage, rejectMessage, image);
 
             EditorUtility.SetDirty(data);
             allItems.Add(data);
@@ -73,7 +89,7 @@ public class ExcelImporter : MonoBehaviour
             AssetDatabase.CreateAsset(db, dbAssetPath);
         }
 
-        db.datas = allItems;
+        db.Datas = allItems;
         EditorUtility.SetDirty(db);
 
         AssetDatabase.SaveAssets();

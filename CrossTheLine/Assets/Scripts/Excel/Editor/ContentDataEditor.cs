@@ -13,17 +13,16 @@ public class ContentDataEditor : Editor
 
     private void OnEnable()
     {
-        datasProperty = serializedObject.FindProperty("datas");
+        datasProperty = serializedObject.FindProperty("Datas");
         datas = new ReorderableList(serializedObject, datasProperty, true, true, false, false)
         {
             drawHeaderCallback = rect =>
             {
-                var headerRect = new Rect(rect.x, rect.y, rect.width, rect.height); // 위로 약간 띄우기
+                var headerRect = new Rect(rect.x, rect.y, rect.width, rect.height);
                 EditorGUI.LabelField(headerRect, "Content Data List (Read-Only)", EditorStyles.boldLabel);
             },
             drawElementBackgroundCallback = (rect, index, isActive, isFocused) =>
             {
-                // Disable highlight unless dragging
                 if (DragAndDrop.activeControlID == 0)
                 {
                     isActive = false;
@@ -41,7 +40,7 @@ public class ContentDataEditor : Editor
                 if (element.objectReferenceValue == null) return;
 
                 var content = (ContentDataSO)element.objectReferenceValue;
-                string titleRaw = $"{content.id}. {content.message}";
+                string titleRaw = $"{content.Id}. {content.Title}";
                 string title = titleRaw.Length > 40 ? titleRaw.Substring(0, 40) + "..." : titleRaw;
                 string foldoutKey = $"Content_{index}_{content.name}";
 
@@ -55,42 +54,46 @@ public class ContentDataEditor : Editor
                     float y = rect.y + EditorGUIUtility.singleLineHeight + 4f;
                     float spacing = 5f;
                     float padding = 10f;
-                    float imageSize = 40f;
+                    float imageSize = 60f;
 
                     float textBlockX = rect.x + padding + imageSize + spacing;
                     float textBlockWidth = rect.width - (textBlockX - rect.x) - 10f;
 
                     EditorGUI.BeginDisabledGroup(true);
 
-                    if (content.image != null)
+                    if (content.Image != null)
                     {
                         Rect imageRect = new Rect(rect.x + padding, y, imageSize, imageSize);
-                        EditorGUI.DrawPreviewTexture(imageRect, content.image.texture);
+                        EditorGUI.DrawPreviewTexture(imageRect, content.Image.texture);
                     }
 
-                    // 첫 번째 줄: W / MS
-                    float labelWidth = 25f;
-                    float fieldWidth = 40f;
+                    // 첫 번째 줄: Sender & Previous ID
+                    float labelWidth = 50f;
+                    float valueWidth = 100f;
+                    
+                    Rect senderLabel = new Rect(textBlockX, y, labelWidth, EditorGUIUtility.singleLineHeight);
+                    Rect senderField = new Rect(senderLabel.xMax, y, valueWidth, EditorGUIUtility.singleLineHeight);
+                    EditorGUI.LabelField(senderLabel, "보낸이:");
+                    EditorGUI.TextField(senderField, GUIContent.none, content.Sender);
 
-                    Rect wLabel = new Rect(textBlockX, y, labelWidth, EditorGUIUtility.singleLineHeight);
-                    Rect wField = new Rect(wLabel.xMax, y, fieldWidth, EditorGUIUtility.singleLineHeight);
-                    EditorGUI.LabelField(wLabel, "W:");
-                    EditorGUI.TextField(wField, GUIContent.none, content.w.ToString());
+                    Rect prevIdLabel = new Rect(senderField.xMax + spacing, y, labelWidth, EditorGUIUtility.singleLineHeight);
+                    Rect prevIdField = new Rect(prevIdLabel.xMax, y, valueWidth, EditorGUIUtility.singleLineHeight);
+                    EditorGUI.LabelField(prevIdLabel, "선행ID:");
+                    EditorGUI.TextField(prevIdField, GUIContent.none, content.PreviousId.ToString());
 
-                    Rect msLabel = new Rect(wField.xMax + spacing, y, labelWidth + 5f, EditorGUIUtility.singleLineHeight);
-                    Rect msField = new Rect(msLabel.xMax, y, fieldWidth, EditorGUIUtility.singleLineHeight);
-                    EditorGUI.LabelField(msLabel, "MS:");
-                    EditorGUI.TextField(msField, GUIContent.none, content.minStage.ToString());
-
-                    // 두 번째 줄: Status
+                    // 두 번째 줄: 최소 요구 스테이터스
                     y += EditorGUIUtility.singleLineHeight + 4f;
-                    float statusLabelWidth = 50f;
-                    float statusFieldWidth = textBlockWidth - statusLabelWidth;
+                    Rect minStatusLabel = new Rect(textBlockX, y, labelWidth + 30f, EditorGUIUtility.singleLineHeight);
+                    Rect minStatusField = new Rect(minStatusLabel.xMax, y, textBlockWidth - (labelWidth + 30f), EditorGUIUtility.singleLineHeight);
+                    EditorGUI.LabelField(minStatusLabel, "최소 요구:");
+                    EditorGUI.TextField(minStatusField, GUIContent.none, content.MinStatus.ToString());
 
-                    Rect statusLabel = new Rect(textBlockX, y, statusLabelWidth, EditorGUIUtility.singleLineHeight);
-                    Rect statusField = new Rect(statusLabel.xMax, y, statusFieldWidth, EditorGUIUtility.singleLineHeight);
-                    EditorGUI.LabelField(statusLabel, "Status:");
-                    EditorGUI.TextField(statusField, GUIContent.none, $"(Bad:{content.minStatus.Bad}, Secret:{content.minStatus.Secret})");
+                    // 세 번째 줄: 보상 스테이터스
+                    y += EditorGUIUtility.singleLineHeight + 4f;
+                    Rect rewardStatusLabel = new Rect(textBlockX, y, labelWidth + 30f, EditorGUIUtility.singleLineHeight);
+                    Rect rewardStatusField = new Rect(rewardStatusLabel.xMax, y, textBlockWidth - (labelWidth + 30f), EditorGUIUtility.singleLineHeight);
+                    EditorGUI.LabelField(rewardStatusLabel, "수락 보상:");
+                    EditorGUI.TextField(rewardStatusField, GUIContent.none, content.RewardStatus.ToString());
 
                     EditorGUI.EndDisabledGroup();
                 }
@@ -100,7 +103,7 @@ public class ContentDataEditor : Editor
                 string key = $"Content_{index}_{((ContentDataSO)datasProperty.GetArrayElementAtIndex(index).objectReferenceValue).name}";
                 if (!isFoldoutExpandedsByTitle.TryGetValue(key, out bool expanded) || !expanded)
                     return EditorGUIUtility.singleLineHeight + 6.0f;
-                return EditorGUIUtility.singleLineHeight * 4;
+                return EditorGUIUtility.singleLineHeight * 5;
             }
         };
     }

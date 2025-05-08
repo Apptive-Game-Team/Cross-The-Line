@@ -12,11 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f368164d96fe0af47bdb496197abc6d0, type: 3}
   m_Name: Item_001
   m_EditorClassIdentifier: 
-  id: 1
-  message: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-  w: 1
-  minStage: 2
-  minStatus:
-    Bad: 3
-    Secret: 4
-  image: {fileID: 21300000, guid: 15a12787afc16d5409922ebebf7edb6b, type: 3}
+  Id: 1
+  PreviousId: 0
+  Title: "\uC548 \uC77D\uC73C\uBA74 \uB2D8 3\uB300\uAE4C\uC9C0 \uB300\uBA38\uB9AC"
+  Sender: "\uBE5B\uB098\uB9AC"
+  Content: "\uC81C \uB538\uC744 \uC8FD\uC778 \uBC94\uC778\uC744 10\uB144 \uB4A4\uC5D0
+    \uC8FD\uC5EC\uC8FC\uC138\uC694."
+  MinStatus:
+    Justice: 0
+    Guilt: 0
+    Infamy: 0
+  RewardStatus:
+    Justice: 5
+    Guilt: 5
+    Infamy: 5
+  AcceptMessage: "\uAC10\uC0AC\uD574\uC624 \u314B\u314E"
+  RejectMessage: "\uB2CC \uB300\uBA38\uB9AC\uB2E4"
+  Image: {fileID: 21300000, guid: 15a12787afc16d5409922ebebf7edb6b, type: 3}
