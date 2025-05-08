@@ -1,5 +1,5 @@
-﻿id,text,w,minStage,bad,secret,image,,,ImageName
-1,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,1,2,3,4,bocchi,,,bocchi
-2,world,5,6,7,8,ijichi_nijika,,,ijichi_nijika
-3,asd;flkj,9,10,11,12,kita_ikuyo,,,kita_ikuyo
-4,ㅁㄴㅇ리ㅏㅓㅗ,13,14,15,16,yamada_ryou,,,yamada_ryou
+﻿"ID		",선행ID,제목,보낸이,내용,최소정의감,최소죄책감,최소악명,정의감,죄책감,악명,수락메시지,거절메시지,이미지이름,,,ImageName
+1,0,안 읽으면 님 3대까지 대머리,빛나리,제 딸을 죽인 범인을 10년 뒤에 죽여주세요.,0,0,0,5,5,5,감사해오 ㅋㅎ,닌 대머리다,bocchi,,,bocchi
+2,0,빵애오,치무차쿠맨,시신을 8토막 낸 살인사건이 발생했습니다.,0,0,0,6,7,8,빵애오!,빵애..오,ijichi_nijika,,,ijichi_nijika
+3,0,안녕하세요. 저희는 스위트 걸이에요,스위트걸,세상을 뒤엎을 엄청난 발명품,0,0,0,9,9,9,활동열심히할게요!!,힝구..,kita_ikuyo,,,kita_ikuyo
+4,1,천사들의 학교에 루시퍼에 등장이라..,천사,세미나 1등 프로젝트가 되기 위한 여정,5,5,5,2,2,2,제법인데,꺼져라 이 사탄아,yamada_ryou,,,yamada_ryou

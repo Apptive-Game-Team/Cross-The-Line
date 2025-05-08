@@ -1,3 +1,5 @@
+using UnityEngine.Serialization;
+
 namespace CTR.UI.ScriptableObjects
 {
     using System.Collections.Generic;
@@ -6,7 +8,8 @@ namespace CTR.UI.ScriptableObjects
     [CreateAssetMenu(fileName = "RequestSO", menuName = "Request/RequestSO")]
     public class RequestSO : ScriptableObject
     {
-        public List<ContentDataSO> CurrentRequests;
+        [FormerlySerializedAs("CurrentRequests")]
+        public List<ContentDataSO> Datas;
         public List<int> VisitedRequestIds;
         public int CurrentIndex;
     }
