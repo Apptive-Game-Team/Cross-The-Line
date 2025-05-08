@@ -178,8 +178,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'DAY - '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 495895aaec51f694bb601157cd72c9d3, type: 2}
+  m_sharedMaterial: {fileID: -2416426631713425285, guid: 495895aaec51f694bb601157cd72c9d3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -360,8 +360,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uB2E4\uC74C \uB0A0\uB85C"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 495895aaec51f694bb601157cd72c9d3, type: 2}
+  m_sharedMaterial: {fileID: -2416426631713425285, guid: 495895aaec51f694bb601157cd72c9d3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1513,44 +1513,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'asdfasdfasf
-
-    asdf
-
-    asdf
-
-    asdf
-
-    asdf
-
-    asdf
-
-    asdf
-
-
-
-    asdf
-
-    asdf
-
-    asdf
-
-    asdf
-
-    asdf
-
-    asdf
-
-    asdf
-
-    ASDF
-
-    ASDF
-
-    ASF'
+  m_text: "\uC548\n\uB155\n\uD558\n\uC138\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 495895aaec51f694bb601157cd72c9d3, type: 2}
+  m_sharedMaterial: {fileID: -2416426631713425285, guid: 495895aaec51f694bb601157cd72c9d3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1574,8 +1540,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 30.7
+  m_fontSizeBase: 30.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1612,7 +1578,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -410.3311}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1794,8 +1760,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Don't cross the Line
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 495895aaec51f694bb601157cd72c9d3, type: 2}
+  m_sharedMaterial: {fileID: -2416426631713425285, guid: 495895aaec51f694bb601157cd72c9d3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2150,17 +2116,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBCF4\uB0B8 \uC0AC\uB78C : tom"
+  m_text: "\uBCF4\uB0B8 \uC0AC\uB78C : \uC815\uAD6D\uACBD\n\uC548\uB155\uD558\uC138\uC694
+    \uC81C \uC774\uB984\uC740 \uC815\uAD6D\uACBD\uC774\uC5D0\uC694. \uB9CC\uB098\uC11C
+    \uBC18\uAC00\uC6CC\uC694. \uD558\uD558\uD558\uD558"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 495895aaec51f694bb601157cd72c9d3, type: 2}
+  m_sharedMaterial: {fileID: -2416426631713425285, guid: 495895aaec51f694bb601157cd72c9d3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

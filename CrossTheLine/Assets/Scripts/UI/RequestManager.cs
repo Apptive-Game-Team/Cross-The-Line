@@ -137,10 +137,7 @@ namespace CTR.UI
             status.AddStatus( currentContent.RewardStatus.Justice, currentContent.RewardStatus.Guilt, currentContent.RewardStatus.Infamy);
             Debug.Log(currentContent.RewardStatus.ToString());
             
-            // 2. 등장한 의뢰 리스트에 현재 의뢰 id 추가
-            request.VisitedRequestIds.Add(currentContent.Id);
-            
-            // 3. 다음 의뢰 보여주기
+            // 2. 다음 의뢰 보여주기
             request.CurrentIndex += 1;
             if (request.CurrentIndex < request.Datas.Count)
             {
@@ -152,10 +149,7 @@ namespace CTR.UI
   
         private void OnReject()
         {
-            // 1. 등장한 의뢰 리스트에 현재 의뢰 id 추가
-            request.VisitedRequestIds.Add(currentContent.Id);
-            
-            // 2. 다음 의뢰 보여주기
+            // 다음 의뢰 보여주기
             request.CurrentIndex += 1;
             if (request.CurrentIndex < request.Datas.Count)
             {

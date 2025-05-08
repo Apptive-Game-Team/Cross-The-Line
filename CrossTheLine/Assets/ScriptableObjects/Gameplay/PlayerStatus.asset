@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerStatus
   m_EditorClassIdentifier: 
   Status:
-    Justice: 0
-    Guilt: 0
-    Infamy: 0
-  reset: 1
+    Justice: 22
+    Guilt: 23
+    Infamy: 24
+  reset: 0
