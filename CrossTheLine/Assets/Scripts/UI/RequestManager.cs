@@ -29,9 +29,6 @@ namespace CTR.UI
         [SerializeField] private VoidEventChannelSO onAcceptRequest;
         [SerializeField] private VoidEventChannelSO onRejectRequest;
         
-        public bool IsAccept = false;
-        public bool IsReject = false;
-        
         // 현재 UI에 보여지는 의뢰
         private ContentDataSO currentContent;
 
