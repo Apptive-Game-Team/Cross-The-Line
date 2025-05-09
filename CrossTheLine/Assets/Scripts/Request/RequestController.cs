@@ -17,6 +17,10 @@ public class RequestController : MonoBehaviour
     private float maxLocalX;
    
     private RequestManager requestManager;
+
+    [Header("Broadcasting on")]
+    [SerializeField] private VoidEventChannelSO onAcceptRequest;
+    [SerializeField] private VoidEventChannelSO onAcceptRequest;
     private void Awake()
     {
         requestManager = transform.parent.GetComponent<RequestManager>();
@@ -78,12 +82,13 @@ public class RequestController : MonoBehaviour
     private void SelectRight()
     {
         Debug.Log("SelectRight");
-        requestManager.isAccept = true;
+        onAcceptRequest.Invoke;
     }
 
     private void SelectLeft()
     {
         Debug.Log("SelectLeft"); 
         requestManager.isReject = true;
+        onRejectRequest.Invoke;
     }
 }
