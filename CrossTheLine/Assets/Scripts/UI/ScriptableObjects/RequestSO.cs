@@ -14,7 +14,7 @@ namespace CTR.UI.ScriptableObjects
         public List<int> VisitedRequestIds;
         public int CurrentIndex;
 
-        public bool reset;
+        public bool Reset;
 
         private void OnValidate()
         {

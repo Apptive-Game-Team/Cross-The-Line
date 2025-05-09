@@ -27,8 +27,8 @@ namespace CTR.UI
         [SerializeField] private Button nextDayButton;
         [SerializeField] private TextMeshProUGUI currentDayTMP;
         
-        public bool isAccept = false;
-        public bool isReject = false;
+        public bool IsAccept = false;
+        public bool IsReject = false;
         
         // 현재 UI에 보여지는 의뢰
         private ContentDataSO currentContent;

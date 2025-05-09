@@ -9,13 +9,13 @@ namespace CTR
         [SerializeField] private IntEventChannelSO onDayChanged;
 
         public int CurrentDay { get; set; } = 0;
-        public bool isChanged = false;
+        public bool IsChanged = false;
 
         private void Update()
         {
-            if (isChanged)
+            if (IsChanged)
             {
-                isChanged = false;
+                IsChanged = false;
                 GoNextDay();
             }
         }
