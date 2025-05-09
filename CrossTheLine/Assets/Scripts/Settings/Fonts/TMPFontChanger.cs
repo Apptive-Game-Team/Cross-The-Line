@@ -23,13 +23,15 @@ public class TMPFontChangerEditor : Editor
         {
             TMP_FontAsset fontAsset = ((TMPFontChanger)target).FontAsset;
 
-            foreach(TextMeshPro textMeshPro3D in GameObject.FindObjectsByType<TextMeshPro>(FindObjectsSortMode.None)) 
+            foreach(TextMeshPro textMeshPro3D in GameObject.FindObjectsByType<TextMeshPro>(FindObjectsSortMode.InstanceID)) 
             { 
                 textMeshPro3D.font = fontAsset;
+                textMeshPro3D.margin = new Vector4(10, 10, 10, 10);
             }
-            foreach(TextMeshProUGUI textMeshProUi in GameObject.FindObjectsByType<TextMeshProUGUI>(FindObjectsSortMode.None)) 
+            foreach(TextMeshProUGUI textMeshProUi in GameObject.FindObjectsByType<TextMeshProUGUI>(FindObjectsSortMode.InstanceID)) 
             { 
                 textMeshProUi.font = fontAsset;
+                textMeshProUi.margin = new Vector4(10, 10, 10, 10);
             }
         }
     }
