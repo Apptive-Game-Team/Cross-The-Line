@@ -5,8 +5,8 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(Collider2D))]
 public class RequestController : MonoBehaviour
 {
-    public static float DRAG_RATIO = 4f;
-    public static float CORRECTION_VALUE = 1f;
+    public const static float DRAG_RATIO = 4f;
+    public const static float CORRECTION_VALUE = 1f;
     private bool isDragging = false;
     
     private Vector3 startMouseWorldPosition;
@@ -17,7 +17,7 @@ public class RequestController : MonoBehaviour
     private float maxLocalX;
    
     private RequestManager requestManager;
-    void Awake()
+    private void Awake()
     {
         requestManager = transform.parent.GetComponent<RequestManager>();
         
@@ -27,8 +27,7 @@ public class RequestController : MonoBehaviour
         maxLocalX = originalLocalX + DRAG_RATIO;
     }
     
-
-    void OnMouseDown()
+    private void OnMouseDown()
     {
         var screenPoint = Input.mousePosition;
         if (Camera.main != null) startMouseWorldPosition = Camera.main.ScreenToWorldPoint(screenPoint);
@@ -36,7 +35,7 @@ public class RequestController : MonoBehaviour
         isDragging = true;
     }
 
-    void OnMouseDrag()
+    private void OnMouseDrag()
     {
         if (!isDragging) return;
         
@@ -53,7 +52,7 @@ public class RequestController : MonoBehaviour
         }
     }
 
-    void OnMouseUp()
+    private void OnMouseUp()
     {
         isDragging = false;
         
@@ -87,6 +86,4 @@ public class RequestController : MonoBehaviour
         Debug.Log("SelectLeft"); 
         requestManager.isReject = true;
     }
-    
-    
 }
