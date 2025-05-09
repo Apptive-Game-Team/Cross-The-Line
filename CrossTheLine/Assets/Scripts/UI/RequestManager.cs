@@ -17,15 +17,17 @@ namespace CTR.UI
         [SerializeField] private ScriptableObjects.RequestSO request; // current index, 
         // Player의 현재 Status
         [SerializeField] private StatusSO status;
-        // Day 바뀌는 이벤트 채널
-        [Header("Listening to")]
-        [SerializeField] private IntEventChannelSO onDayChanged;
         // UI Components
         [SerializeField] private TextMeshProUGUI titleTMP;
         [SerializeField] private TextMeshProUGUI senderTMP;
         [SerializeField] private TextMeshProUGUI contentTMP;
         [SerializeField] private Button nextDayButton;
         [SerializeField] private TextMeshProUGUI currentDayTMP;
+        // Day 바뀌는 이벤트 채널
+        [Header("Listening to")]
+        [SerializeField] private IntEventChannelSO onDayChanged;
+        [SerializeField] private VoidEventChannelSO onAcceptRequest;
+        [SerializeField] private VoidEventChannelSO onRejectRequest;
         
         public bool IsAccept = false;
         public bool IsReject = false;
@@ -36,11 +38,15 @@ namespace CTR.UI
         private void OnEnable()
         {
             onDayChanged.OnEventRaised += Init;
+            onAcceptRequest.OnEventRaised += Accept;
+            onRejectRequest.OnEventRaised += Reject;
         }
 
         private void OnDisable()
         {
             onDayChanged.OnEventRaised -= Init;
+            onAcceptRequest.OnEventRaised -= Accept;
+            onRejectRequest.OnEventRaised -= Reject;
         }
     
         private void Init(int currentDay)
@@ -114,21 +120,7 @@ namespace CTR.UI
             return contents;
         }
 
-        private void Update()
-        {
-            if (isAccept)
-            {
-                isAccept = false;
-                OnAccept();
-            }
-            if (isReject)
-            {
-                isReject = false;
-                OnReject();
-            }
-        }
-
-        private void OnAccept()
+        private void Accept()
         {
             // 현재 의뢰 승락하면
             
@@ -147,7 +139,7 @@ namespace CTR.UI
             SetUI();
         }
   
-        private void OnReject()
+        private void Reject()
         {
             // 다음 의뢰 보여주기
             request.CurrentIndex += 1;
