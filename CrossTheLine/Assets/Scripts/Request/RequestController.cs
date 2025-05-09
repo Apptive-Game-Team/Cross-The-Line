@@ -1,4 +1,4 @@
-﻿using CTR.UI;
+using CTR.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -20,7 +20,7 @@ public class RequestController : MonoBehaviour
 
     [Header("Broadcasting on")]
     [SerializeField] private VoidEventChannelSO onAcceptRequest;
-    [SerializeField] private VoidEventChannelSO onAcceptRequest;
+    [SerializeField] private VoidEventChannelSO onRejectRequest;
     private void Awake()
     {
         requestManager = transform.parent.GetComponent<RequestManager>();
