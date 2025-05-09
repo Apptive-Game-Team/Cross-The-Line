@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "VoidEventChannelSO", menuName = "Events/VoidEventChannelSO", order = Int32.MaxValue)]
+[CreateAssetMenu(menuName = "Events/VoidEventChannel", order = -1)]
 public class VoidEventChannelSO : ScriptableObject
 {
     public UnityAction OnEventRaised;

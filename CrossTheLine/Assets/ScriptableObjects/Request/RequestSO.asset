@@ -12,16 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5df7d16336f3c64f9db9703f6764243, type: 3}
   m_Name: RequestSO
   m_EditorClassIdentifier: 
-  Datas:
-  - {fileID: 11400000, guid: 06311fc2d3548fe419d4db888945eb51, type: 2}
-  - {fileID: 11400000, guid: 06311fc2d3548fe419d4db888945eb51, type: 2}
-  - {fileID: 11400000, guid: 06311fc2d3548fe419d4db888945eb51, type: 2}
-  - {fileID: 11400000, guid: 06311fc2d3548fe419d4db888945eb51, type: 2}
-  - {fileID: 11400000, guid: 06311fc2d3548fe419d4db888945eb51, type: 2}
-  - {fileID: 11400000, guid: 06311fc2d3548fe419d4db888945eb51, type: 2}
-  - {fileID: 11400000, guid: 06311fc2d3548fe419d4db888945eb51, type: 2}
-  - {fileID: 11400000, guid: 06311fc2d3548fe419d4db888945eb51, type: 2}
-  - {fileID: 11400000, guid: 06311fc2d3548fe419d4db888945eb51, type: 2}
-  - {fileID: 11400000, guid: 06311fc2d3548fe419d4db888945eb51, type: 2}
-  VisitedRequestIds: 000000000000000000000000
+  Datas: []
+  VisitedRequestIds: 
   CurrentIndex: 0
+  reset: 1

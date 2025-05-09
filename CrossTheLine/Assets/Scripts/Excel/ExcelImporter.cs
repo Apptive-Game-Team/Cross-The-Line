@@ -70,6 +70,7 @@ public class ExcelImporter : MonoBehaviour
             {
                 data = ScriptableObject.CreateInstance<ContentDataSO>();
                 AssetDatabase.CreateAsset(data, assetPath);
+                data.hideFlags = HideFlags.HideAndDontSave;
             }
 
             data.Init(id, previousId, title, sender, content, 
@@ -87,6 +88,7 @@ public class ExcelImporter : MonoBehaviour
         {
             db = ScriptableObject.CreateInstance<ContentDatabaseSO>();
             AssetDatabase.CreateAsset(db, dbAssetPath);
+            db.hideFlags = HideFlags.HideAndDontSave;
         }
 
         db.Datas = allItems;
