@@ -1,181 +1,80 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using TMPro;
+using CTR;
+using CTR.UI.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
-    // GameObject
-    // 사실 이 cardGameObject 가 걍 자신이라서 수정 필요할 수도.
-    public GameObject cardGameObject;
-    public CardController mainCardContorller;
-    public SpriteRenderer cardSpriteRenderer;
-    public ResourceManager resourceManager;
+    // 엑셀에서 읽어온 SO를 저장하는 DB
+    [SerializeField] private ContentDatabaseSO db;
+    // 현재 Request 현황을 저장하는 SO
+    [SerializeField] private RequestSO request;
+    // Player의 현재 Status
+    [SerializeField] private StatusSO status;
+    [SerializeField] private DayManager dayManager;
+    
+    [Header("Listening to")]
+    [SerializeField] private VoidEventChannelSO onSceneLoaded;
+    [SerializeField] private IntEventChannelSO onDayChanged;
 
-    public GameObject rightCardPosition;
-    public GameObject leftCardPosition;
-    public GameObject centerCardPosition;
-    
-    // Tweaking Variable
-    public float fMovingSpeed = 2.0f;
-    private Vector3 pos;
-    private Vector3 startPos;
-    
-    private bool isDelay = false;
+    private void OnEnable()
+    {
+        onDayChanged.OnEventRaised += Init;
+        onSceneLoaded.OnEventRaised += Init;
+    }
 
-    public const float SIDE_MARGIN = 0.5f;
-    public const float SIDE_TRIGGER = 3.0f;
+    private void OnDisable()
+    {
+        onDayChanged.OnEventRaised -= Init;
+        onSceneLoaded.OnEventRaised -= Init;
+    }
 
-    public const float DIVIDE_VALUE = 3.0f;
-    
-    private Collider cardCollider;
-    
-    // UI
-    public TMP_Text displayText;
-    public TMP_Text dialogueText;
-    public TMP_Text characterName;
-    
-    // CardSO Variables
-    private string leftQuote;
-    private string rightQuote;
-    public CardSO currentCard;
-    public CardSO testCard;
-    
     private void Start()
     {
-        // Set CardSO Variable
-        Transform graphicTransform = cardGameObject.transform.Find("MainGraphic");
-        mainCardContorller = cardGameObject.GetComponent<CardController>();
-        cardCollider = cardGameObject.GetComponent<Collider>();
-        cardSpriteRenderer = graphicTransform.GetComponent<SpriteRenderer>();
-        //resourceManager = cardGameObject.GetComponent<ResourceManager>();
-        
-        LoadCard(testCard);
+        dayManager.GoNextDay();
     }
 
-    private void Update()
+    private void Init()
     {
-        if (!isDelay)
-        {
-            SetCardPosition(); 
-        }
+        Init(0);
     }
 
-    private void SetCardPosition() 
+    private void Init(int currentDay)
     {
-        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (pos.x < 0)
-        {
-            cardGameObject.transform.position = Vector3.Lerp(centerCardPosition.transform.position, leftCardPosition.transform.position, Mathf.Abs(pos.x / (SIDE_MARGIN + 1)));
-            cardGameObject.transform.rotation = Quaternion.Lerp(centerCardPosition.transform.rotation, leftCardPosition.transform.rotation, Mathf.Abs(pos.x / (SIDE_MARGIN + 1)));
-
-            if (pos.x < -SIDE_MARGIN)
-            {
-                dialogueText.text = leftQuote;
-                cardSpriteRenderer.color = Color.red;
-                if (Input.GetMouseButtonDown(0))
-                {
-                    currentCard.Left();
-                    NewCard();
-                }
-            }
-            else
-            {
-                cardSpriteRenderer.color = Color.white;
-            }
-        }
-        else if (pos.x > 0)
-        {
-            cardGameObject.transform.position = Vector3.Lerp(centerCardPosition.transform.position, rightCardPosition.transform.position, pos.x / (SIDE_MARGIN + 1));
-            cardGameObject.transform.rotation = Quaternion.Lerp(centerCardPosition.transform.rotation, rightCardPosition.transform.rotation, pos.x / (SIDE_MARGIN + 1));
-            if (pos.x > SIDE_MARGIN)
-            {
-                dialogueText.text = rightQuote;
-                cardSpriteRenderer.color = Color.green;
-                if (Input.GetMouseButtonDown(0))
-                {
-                    currentCard.Right();
-                    NewCard();
-                }
-            }
-            else
-            {
-                cardSpriteRenderer.color = Color.white;
-            }
-        }
-        
-        SetTextAlpha(pos);
+        // 랜덤하게 배정받은 의뢰를 순서대로 화면에 출력하기 위한 세팅
+        request.CurrentIndex = 0;
+        request.Datas.Clear();
+        request.Datas = GetRandomRequests(currentDay);
     }
-
-    private void SetTextAlpha(Vector3 mousePos)
+    
+    /// <summary>
+    /// n개의 최소 스테이터스를 만족하는 ContentDataSO를 랜덤하게 배정해 반환
+    /// 조건 : 최소 스테이터스 만족, 기존 의뢰와 중복 여부, 선행 의뢰 수행 여부
+    /// </summary>
+    private List<ContentDataSO> GetRandomRequests(int n)
     {
-        dialogueText.alpha = Mathf.Min(Mathf.Sqrt(Mathf.Abs(mousePos.x / DIVIDE_VALUE)), 1);
-    }
-
-    private void NewCard()
-    {
-        int randomIndex = UnityEngine.Random.Range(0, resourceManager.cards.Length);
-        LoadCard(resourceManager.cards[randomIndex]);
-    }
-
-    private void LoadCard(CardSO card)
-    {
-        cardSpriteRenderer.sprite = resourceManager.sprites[(int)card.cardSprite];
-        leftQuote = card.leftQuote;
-        rightQuote = card.rightQuote;
-        currentCard = card;
-        isDelay = true;
-
-        dialogueText.text = "";
-        cardSpriteRenderer.color = Color.white;
-        StartCoroutine(MoveCenterDelay());
-    }
-
-    private IEnumerator MoveCenterDelay()
-    {
-        float elapsedTime = 0f;
-        float duration = 1f;  // 이동하는 데 걸리는 시간 (1초)
-        
-        Quaternion backFlip = Quaternion.Euler(centerCardPosition.transform.rotation.eulerAngles.x, centerCardPosition.transform.rotation.eulerAngles.y -180, centerCardPosition.transform.rotation.eulerAngles.z);
-        cardGameObject.transform.position = centerCardPosition.transform.position;
-        cardGameObject.transform.rotation = backFlip;
-
-        while (elapsedTime < duration)
-        {
-            elapsedTime += Time.deltaTime;
-            float lerpFactor = elapsedTime / duration;
+        List<ContentDataSO> contents = new List<ContentDataSO>();
             
-            cardGameObject.transform.rotation = Quaternion.Lerp(backFlip, centerCardPosition.transform.rotation, lerpFactor);
-
-            yield return null;
-        }
-        /*
-        Vector3 startPosition = cardGameObject.transform.position;
-        Quaternion startRotation = cardGameObject.transform.rotation;
-
-        // 1초 동안 부드럽게 이동
-        while (elapsedTime < duration)
+        // db.Datas 에서 조건에 맞는 의뢰 필터링
+        foreach (var content in db.Datas)
         {
-            elapsedTime += Time.deltaTime;
-            float lerpFactor = Mathf.Clamp01(elapsedTime / duration); // lerpFactor는 0에서 1로 점진적으로 증가
-
-            // 부드럽게 위치와 회전을 계산
-            cardGameObject.transform.position = Vector3.Lerp(startPosition, centerCardPosition.transform.position, lerpFactor);
-            cardGameObject.transform.rotation = Quaternion.Lerp(startRotation, centerCardPosition.transform.rotation, lerpFactor);
-
-            yield return null;  // 한 프레임 기다린 후 계속 실행
+            if (status.Status.Justice >= content.MinStatus.Justice &&
+                status.Status.Guilt >= content.MinStatus.Guilt &&
+                status.Status.Infamy >= content.MinStatus.Infamy &&
+                !request.VisitedRequestIds.Contains(content.Id) &&
+                (request.VisitedRequestIds.Contains(content.PreviousId) || content.PreviousId == 0) &&
+                request.Datas.Count < n)
+            {
+                contents.Add(content);
+                request.VisitedRequestIds.Add(content.Id);
+            }
+            else
+            {
+                Debug.Log($"잘 걸렀네 {content.Id}");
+            }
         }
-
-        // 이동이 완료된 후의 상태
-        cardGameObject.transform.position = centerCardPosition.transform.position;
-        cardGameObject.transform.rotation = centerCardPosition.transform.rotation;
-        */
-
-        // 딜레이 종료 처리
-        
-        yield return new WaitForSeconds(duration);
-        isDelay = false;
+            
+        return contents;
     }
 }

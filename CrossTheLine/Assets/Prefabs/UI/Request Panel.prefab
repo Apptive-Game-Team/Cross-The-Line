@@ -352,8 +352,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4101370713817429325}
   m_HandleRect: {fileID: 8364562120431245407}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.66400325
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -428,6 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2165e9caaead8c84c839310a20553f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  padding: 10
 --- !u!1 &4989198489641197323
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,10 +686,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 258209388120821935}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1464, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &3281771583820800268
 CanvasRenderer:
@@ -718,41 +719,65 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'asdfasdfasf
+  m_text: '123123!23123!23
 
-    asdf
+    123
 
-    asdf
+    123
 
-    asdf
+    123
 
-    asdf
+    123
 
-    asdf
+    123
 
-    asdf
+    123
 
+    123
 
+    123
 
-    asdf
+    123
 
-    asdf
+    123123!23123!23
 
-    asdf
+    123
 
-    asdf
+    123
 
-    asdf
+    123
 
-    asdf
+    123
 
-    asdf
+    123
 
-    ASDF
+    123
 
-    ASDF
+    123
 
-    ASF'
+    123
+
+    123
+
+    123123!23123!23
+
+    123
+
+    123
+
+    123
+
+    123
+
+    123
+
+    123
+
+    123
+
+    123
+
+    123'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 495895aaec51f694bb601157cd72c9d3, type: 2}
   m_sharedMaterial: {fileID: -2416426631713425285, guid: 495895aaec51f694bb601157cd72c9d3, type: 2}
@@ -869,11 +894,11 @@ RectTransform:
   - {fileID: 258209388120821935}
   m_Father: {fileID: 8333060353768025501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
-  m_SizeDelta: {x: 0, y: 446.31}
-  m_Pivot: {x: 0, y: 1}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1464, y: 826.67}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &488270129613808197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -891,7 +916,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 1
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
@@ -913,6 +938,7 @@ GameObject:
   - component: {fileID: 5306132528794032962}
   - component: {fileID: 7942847185997397637}
   - component: {fileID: 1314327402653779713}
+  - component: {fileID: 3064288620088632342}
   m_Layer: 5
   m_Name: Content Panel
   m_TagString: Untagged
@@ -1026,6 +1052,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &3064288620088632342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7197771386137637116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4646412a82f4234ab9836ef1cb0bdae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onAcceptRequest: {fileID: 11400000, guid: 8763a7748b09e054c921cbd56f69ea69, type: 2}
+  onRejectRequest: {fileID: 11400000, guid: 40e6d79aafb3b274987e78f22772e967, type: 2}
 --- !u!1 &7277825166004197402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,7 +1252,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8906799256882892970}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1281,7 +1321,7 @@ MonoBehaviour:
   m_PreferredWidth: -1
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
-  m_FlexibleHeight: 5
+  m_FlexibleHeight: 75
   m_LayoutPriority: 1
 --- !u!114 &8348949103439456458
 MonoBehaviour:
@@ -1324,12 +1364,14 @@ MonoBehaviour:
   N: 10
   db: {fileID: 11400000, guid: f7f179c3d9ac22048876e2bc42a65dd9, type: 2}
   request: {fileID: 11400000, guid: 1461361f545d354439bcbff4be97086b, type: 2}
-  status: {fileID: 0}
+  status: {fileID: 11400000, guid: 197df95c43a480d49911315a57dfcfe4, type: 2}
   titleTMP: {fileID: 7452782658073587500}
   senderTMP: {fileID: 5463379325038494143}
   contentTMP: {fileID: 4981762272176623715}
   nextDayButton: {fileID: 0}
   currentDayTMP: {fileID: 0}
-  onDayChanged: {fileID: 11400000, guid: a6ef188efbee74848a7305a4de4b00cc, type: 2}
-  onAcceptRequest: {fileID: 0}
-  onRejectRequest: {fileID: 0}
+  onDayChanged: {fileID: 11400000, guid: 84d1b48647124694bac0000b77910482, type: 2}
+  onAcceptRequest: {fileID: 11400000, guid: 8763a7748b09e054c921cbd56f69ea69, type: 2}
+  onRejectRequest: {fileID: 11400000, guid: 40e6d79aafb3b274987e78f22772e967, type: 2}
+  IsAccept: 0
+  IsReject: 0
