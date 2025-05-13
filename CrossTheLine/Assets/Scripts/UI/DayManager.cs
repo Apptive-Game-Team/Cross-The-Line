@@ -18,8 +18,8 @@ namespace CTR
         public void GoNextDay()
         {
             nextDayButton.gameObject.SetActive(false);
-            currentDayTMP.text = $"Day - {CurrentDay}";
             CurrentDay += 1;
+            currentDayTMP.text = $"Day - {CurrentDay}";
             onDayChanged.OnEventRaised(CurrentDay);
         }
     }

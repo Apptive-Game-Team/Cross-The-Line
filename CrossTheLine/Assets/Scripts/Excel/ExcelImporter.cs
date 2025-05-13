@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 
@@ -28,15 +29,18 @@ public class ExcelImporter : MonoBehaviour
             AssetDatabase.Refresh();
         }
 
-        string[] lines = csvFile.text.Split(new[] { '\r', '\n' }, System.StringSplitOptions.RemoveEmptyEntries);
+        string[] lines = Regex.Split(csvFile.text, "`");
         List<ContentDataSO> allItems = new();
+
 
         for (int i = 1; i < lines.Length; i++)
         {
-            string line = lines[i];
+            string line = lines[i];  // Replace 제거
             string[] cols = line.Split(',');
-
-            if (cols.Length < 13)
+            
+            Debug.Log($"{line} , {cols.Length}");
+                
+            if (cols.Length < 15)
             {
                 Debug.LogWarning($"잘못된 라인: {line}");
                 continue;
@@ -70,7 +74,7 @@ public class ExcelImporter : MonoBehaviour
             {
                 data = ScriptableObject.CreateInstance<ContentDataSO>();
                 AssetDatabase.CreateAsset(data, assetPath);
-                data.hideFlags = HideFlags.HideAndDontSave;
+                // data.hideFlags = HideFlags.HideAndDontSave;
             }
 
             data.Init(id, previousId, title, sender, content, 
@@ -80,6 +84,8 @@ public class ExcelImporter : MonoBehaviour
 
             EditorUtility.SetDirty(data);
             allItems.Add(data);
+            
+            Debug.Log($"{data}");
         }
 
         // 3. Content Database 생성 or 갱신
@@ -88,7 +94,7 @@ public class ExcelImporter : MonoBehaviour
         {
             db = ScriptableObject.CreateInstance<ContentDatabaseSO>();
             AssetDatabase.CreateAsset(db, dbAssetPath);
-            db.hideFlags = HideFlags.HideAndDontSave;
+            // db.hideFlags = HideFlags.HideAndDontSave;
         }
 
         db.Datas = allItems;

@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private RequestSO request;
     // Player의 현재 Status
     [SerializeField] private StatusSO status;
-    [SerializeField] private DayManager dayManager;
+    [SerializeField] private DayManager dayManager; // 이게 너무 싫음
     
     [Header("Listening to")]
     [SerializeField] private VoidEventChannelSO onSceneLoaded;
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
                 status.Status.Guilt >= content.MinStatus.Guilt &&
                 status.Status.Infamy >= content.MinStatus.Infamy &&
                 !request.VisitedRequestIds.Contains(content.Id) &&
-                (request.VisitedRequestIds.Contains(content.PreviousId) || content.PreviousId == 0) &&
+                (request.VisitedRequestIds.Contains(content.PreviousId) || content.PreviousId == -1) &&
                 request.Datas.Count < n)
             {
                 contents.Add(content);
