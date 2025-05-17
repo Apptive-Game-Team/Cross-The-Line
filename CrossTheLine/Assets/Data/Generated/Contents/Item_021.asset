@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f368164d96fe0af47bdb496197abc6d0, type: 3}
+  m_Name: Item_021
+  m_EditorClassIdentifier: 
+  Id: 21
+  PreviousId: -1
+  Title: "\uD68C\uC0AC\uC5D0 \uC788\uB294 \uC81C \uAE30\uB85D\uC744 \uC9C0\uC6CC\uC918\uC694."
+  Sender: "\uCDE8\uC5C5\uC900\uBE44\uC0DD"
+  Content: "\"\uCC44\uC6A9 \uD0C8\uB77D\uB410\uB294\uB370 \uC81C \uC815\uBCF4\uAC00
+    \uC544\uC9C1\uB3C4 \uD68C\uC0AC \uC0AC\uC774\uD2B8\uC5D0 \uB0A8\uC544 \uC788\uB354\uB77C\uACE0\uC694.\n\uACF5\uAC1C\uC801\uC73C\uB85C
+    \uBB38\uC81C \uC81C\uAE30\uD558\uBA74 \uD68C\uC0AC \uCABD \uD0C0\uACA9 \uD074
+    \uAC70\uC608\uC694.\n\uB300\uC2E0  \uCC44\uC6A9\uB2F4\uB2F9\uC790\uD55C\uD14C
+    \uC870\uC6A9\uD788 \uC774\uBA54\uC77C \uD558\uB098 \uBCF4\uB0B4\uC904\uB798\uC694?\n'\uC9C0\uC6B0\uC9C0
+    \uC54A\uC73C\uBA74 \uADF8\uAC04 \uBA74\uC811 \uAD00\uB828 \uB0B4\uC6A9 \uACF5\uAC1C\uD55C\uB2E4'\uB294
+    \uC2DD\uC73C\uB85C.\""
+  MinStatus:
+    Justice: 10
+    Guilt: 10
+    Infamy: 10
+  RewardStatus:
+    Justice: 3
+    Guilt: 4
+    Infamy: 3
+  AcceptMessage: "\uACE0\uB9C8\uC6CC\uC694. \uAE54\uB054\uD558\uAC8C \uB05D\uB0B4\uC918\uC694."
+  RejectMessage: "\uADF8\uB7FC \uC5B4\uCA54 \uC218 \uC5C6\uB124\uC694. \uC9C1\uC811
+    \uB098\uC11C\uC57C\uACA0\uC5B4\uC694."
+  Image: {fileID: 0}
