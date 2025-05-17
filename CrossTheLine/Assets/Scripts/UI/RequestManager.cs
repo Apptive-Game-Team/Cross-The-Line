@@ -104,10 +104,13 @@ namespace CTR.UI
             // 현재 의뢰 승락하면
             
             // 1. 스테이터스 상승 시키고
-            StatusSO tmp = status;
-            if (currentContent == null) Debug.LogError("에러");
-            status.AddStatus( currentContent.RewardStatus.Justice, currentContent.RewardStatus.Guilt, currentContent.RewardStatus.Infamy);
-            Debug.Log(currentContent.RewardStatus.ToString());
+            // 첫 날 때문에 이렇게 하기.
+            if (currentContent != null)
+            {
+                StatusSO tmp = status;
+                status.AddStatus( currentContent.RewardStatus.Justice, currentContent.RewardStatus.Guilt, currentContent.RewardStatus.Infamy);
+                Debug.Log(currentContent.RewardStatus.ToString());
+            }
             
             // 2. 다음 의뢰 보여주기
             request.CurrentIndex += 1;
@@ -121,6 +124,14 @@ namespace CTR.UI
   
         private void Reject()
         {
+            // Reject 시에도 상승이 있을 수도 있으므로 올라가는 거 설정만 해두기.
+            // 거절 했을 시에는 떨어지거나 이런 형식으로.
+            if (currentContent != null)
+            {
+                StatusSO tmp = status;
+                status.AddStatus( currentContent.RewardStatus.Justice, currentContent.RewardStatus.Guilt, currentContent.RewardStatus.Infamy);
+                Debug.Log(currentContent.RewardStatus.ToString());
+            }
             // 다음 의뢰 보여주기
             request.CurrentIndex += 1;
             if (request.CurrentIndex < request.Datas.Count)

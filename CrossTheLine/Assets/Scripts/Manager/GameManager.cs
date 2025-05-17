@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private RequestSO request;
     // Player의 현재 Status
     [SerializeField] private StatusSO status;
-    [SerializeField] private DayManager dayManager; // 이게 너무 싫음
+    //[SerializeField] private DayManager dayManager; // 이게 너무 싫음
     
     [Header("Listening to")]
     [SerializeField] private VoidEventChannelSO onSceneLoaded;
@@ -28,11 +28,6 @@ public class GameManager : MonoBehaviour
     {
         onDayChanged.OnEventRaised -= Init;
         onSceneLoaded.OnEventRaised -= Init;
-    }
-
-    private void Start()
-    {
-        dayManager.GoNextDay();
     }
 
     private void Init()
